@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Clube</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/requisicao.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <style type="text/css">	
+body{
+background: url("img/img.jpg") no-repeat center center fixed;
+background-size: cover;
+
+-webkit-background-size: cover; 
+}
+
+.btn-custom {
+    padding: 1px 15px 3px 2px;
+  	border-radius: 50px;
+} 
+
+.btn-icon {
+	padding: 15px;  
+	background: #ffffff;
+}
+    </style>
+</head>
+<body class="img-fluid" id="img" style="background-image: url(img/img.jpg);background-size: cover;background-repeat: no-repeat;">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="index.html">Full/Brotherhood</a>
+  <button class="navbar-toggler" id="sai" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropc" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adicionar
+        </a>
+        <div class="dropdown-menu" id="dropc" style="background-color:#2B2A30; color: white">
+          <a class="dropdown-item" id="membroc">Membros</a>
+          <a class="dropdown-item" id="eventoc">Eventos</a>
+        </div>
+        </li>
+        <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="dropl" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Gerenciar
+        </a>
+        <div class="dropdown-menu" id="dropl"  style="background-color:#2B2A30; color: white">  
+          <a class="dropdown-item" id="membrol">Membros</a>
+          <a class="dropdown-item" id="eventol">Eventos</a>
+        </div>
+      </li>
+      <li>
+        <a class="nav-item" href="#" id="sair">Sair</a>
+      </li>
+  </div>
+</nav>
+
+<div class="container-fluid" id = "add" style="padding: 20px; background: #CDCDC1">
+<div class="jumbotron jumbotron" style = "background: #FFF">
+    <h1 id="tituloM">Cadastro de Membro</h1>
+    <p class="lead"><span style="font-family: Algerian; font-size:30px; color:red" id = "seta">*</span>  Preencha os campos abaixo:</p>
+    <hr class="my-4">
+    <input type="hidden" id="codigoM" value="0">
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Nome</span>
+    </div>
+    <input type="text" name="nome" id="nome" class="form-control" aria-label = "default">
+    </div>
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">CPF</span>
+    </div>
+    <input type="text" name="cpf" id="cpf" class="form-control" aria-label = "default">
+    </div>
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">CEP</span>
+    </div>
+    <input type="text" name="cep" id="cep" class="form-control" aria-label = "default">
+    </div>
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Endereco</span>
+    </div>
+    <input type="text" name="endereco" id="endereco" class="form-control" aria-label = "default">
+    </div>
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Cidade</span>
+    </div>
+    <input type="text" name="cidade" id="cidade" class="form-control" aria-label = "default">
+    </div>
+    <div class="input-group mb-3">
+    <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-default">Estado</span>
+    </div>
+    <input type="text" name="estado" id="estado" class="form-control" aria-label = "default">
+    </div>
+    <a class="btn btn-success btn-lg btn-custom btn-icon" id="adicionarM"><i class="fa fa-user-plus"></i></a>
+  </div>
+</div>
+
+  <div class="container-fluid" id = "add2" style="padding: 20px; background: #CDCDC1">
+  <div class="jumbotron jumbotron" style = "background: #FFF">
+      <h1 id="tituloE">Cadastro de Eventos</h1>
+      <p class="lead"><span style="font-family: Algerian; font-size:30px; color:red" id = "seta">*</span>  Preencha os campos abaixo:</p>
+      <hr class="my-4">
+      <input type="hidden" id="codigoE" value="0">
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Data</span>
+      </div>
+      <input type="datetime-local" name="data" id="data" class="form-control" aria-label = "default">
+      </div>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Palestrantes</span>
+      </div>
+      <input type="text" name="palestrantes" id="palestrantes" class="form-control" aria-label = "default">
+      </div>
+      <div class="input-group mb-3">
+      <div class="input-group-prepend">
+      <span class="input-group-text" id="inputGroup-sizing-default">Descrição</span>
+      </div>
+      <textarea type="area" name="descri" id="descri" class="form-control" aria-label = "default"></textarea>
+      </div><br>
+      <a class="btn btn-success btn-lg btn-custom btn-icon" id="adicionarE"><i class="fa fa-user-plus"></i></a>
+    </div>
+  </div>
+
+<div id="ger" class="table-responsive" > 
+<table class="table table-light table-sm">
+ <thead>
+    <tr>
+     <th scope="col">Nome</th>
+     <th scope="col">CPF</th>
+     <th scope="col">CEP</th>
+     <th scope="col">Endereço</th>
+     <th scope="col">Cidade</th>
+     <th scope="col">Estado</th>
+     <th scope="col"></th>
+     <th scope="col"></th>
+    </tr>
+</thead>
+    <tbody id="listM">
+</table>
+</div>
+</div>
+</div>
+</div>
+
+<div id="ger2" class="table-responsive">
+  <table class="table table-light" id="tabela">
+   <thead>
+      <tr>
+       <th scope="col">Data</th>
+       <th scope="col">Palestrantes</th>
+       <th scope="col">Descrição</th>
+       <th scope="col"></th>
+       <th scope="col"></th>
+      </tr>
+  </thead>  
+      <tbody id="listE">
+  </table>
+  </div>
+</div>
+</body>
+</html>

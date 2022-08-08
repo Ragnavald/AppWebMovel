@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <script src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="js/requisicao.js"></script>
+    <script type="text/javascript" src="js/moment.js"></script>
+    <style>
+    ::placeholder{
+        font-style: italic;
+    }
+    #op{
+
+        font-size: 12px;
+        margin-bottom: 5px;
+        margin-top: -12px;
+        text-align: right;
+    }
+    #op2{
+
+       font-size: 12px;
+        margin-bottom: 8px;
+        margin-top: -30px;
+        margin-right: 20px;
+        text-align: right;
+    }
+    </style>
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" style="color: white;">Full/Brotherhood</a>
+    <button class="navbar-toggler" id="criar" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">Inscreva-se</button>
+    </nav>
+
+         <div id="card_login" class="card" style="width: 18rem;margin-left: auto;margin-right: auto;margin-top: 100px;width: 18em" >
+            <div class="card-body">
+              <h5 class="card-title" style="text-align: center">Login</h5>
+              <hr>
+              <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">E-mail</span>
+                    </div>
+                    <input type="text" id="login_email" class="form-control" placeholder="... insira seu email" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+              <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Senha</span>
+                        </div>
+                        <input type="password" id="login_senha" class="form-control" placeholder="... insira sua senha" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+            <div id="op"><a href="#" class="card-link" id="NC">Criar uma conta</a></div>
+            </div>
+            <button id="login" class="btn btn-outline-info">Entrar</button>
+            <br>
+
+            
+          </div>
+
+          <div id = "card_sing" class="card" style="width: 18rem;margin-left: auto;margin-right: auto;margin-top: 100px;width: 18em" >
+            <div class="card-body">
+              <h5 class="card-title" style="text-align: center">Sing-in</h5>
+              <hr>
+              <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                  <span class="input-group-text" id="basic-addon1">Nome</span>
+                </div>
+                <input type="text" id="sing_nome" class="form-control" placeholder="... insira seu nome" aria-label="Username" aria-describedby="basic-addon1">
+              </div>
+              <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text" id="basic-addon1">E-mail</span>
+                    </div>
+                    <input type="text" id="sing_email" class="form-control" placeholder="... insira seu email" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>
+              <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text" id="basic-addon1">Senha</span>
+                        </div>
+                        <input type="password" pattern=".{8,}" required title="mínimo 16 caracteres" id="sing_senha" class="form-control" placeholder="... insira sua senha" aria-label="Username" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Senha</span>
+                  </div>
+                  <input type="password" pattern=".{8,}" required title="mínimo 16   caracteres" id="sing_senhaC" class="form-control" placeholder="... Reedigite" aria-label="Username" aria-describedby="basic-addon1">
+          </div>
+              </div>
+              <div id="op2"><a href="#" class="card-link" id="E">Entrar</a></div>
+            <button id= "card_sing_btn_salvar" class="btn btn-outline-info">Salvar</button>
+            <br>
+          </div>
+</body>
+</html>

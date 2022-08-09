@@ -1,6 +1,6 @@
 # *App Web Móvel*  
   
-## Projeto avaliativo no curso de informática  
+## Projeto avaliativo do curso de informática  
   
 ### Requisitos:  
 1. Sua máquina precisa de um interpretador de script local e banco de dados, algumas sugestões:

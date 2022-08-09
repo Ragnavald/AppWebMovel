@@ -2,7 +2,7 @@ $(document).ready(function(){
         $("#cep").blur(function (){ //Função que executa logo após o usuário desfocar do campo com id cep
             var cep = $(this).val().replace('-','');  // Limpa a variável cep, removendo o '-' por ''
             if (cep != '') { 
-                var url = 'http://viacep.com.br/ws/'+cep+'/json';// acessando o server indicado e buscando os dados do cep inserido
+                var url = 'https://viacep.com.br/ws/'+cep+'/json';// acessando o server indicado e buscando os dados do cep inserido
                 $.get(url,function(dados){  //recebendo os dados por get e retornando dados
                     $("#endereco").val(dados.logradouro); //listando os valores de dados nos campos 
                     $("#cidade").val(dados.localidade);
@@ -11,9 +11,9 @@ $(document).ready(function(){
             }
             // localStorage.getItem("login_email") === null &&  localStorage.getItem("login_senha") === null
             if (typeof localStorage === undefined) { // se localStorage for indefinido, no caso que eu necessito é que esteja vazio
-                window.location.href("http://localhost/Atividade3_TM_Ronaldo_Junior/App/login.html"); // será redirecionado para a pag login.html 
+                window.location.href("http://localhost/AppWebMovel/App/login.html"); // será redirecionado para a pag login.html 
             }else{ //senão
-                window.location.href("http://localhost/Atividade3_TM_Ronaldo_Junior/App/index.html"); // é redirecionado para o index.html pois ele já está no localstorage
+                window.location.href("http://localhost/AppWebMovel/App/index.html"); // é redirecionado para o index.html pois ele já está no localstorage
             } 
         });
         $("#add").toggle(); 
@@ -55,7 +55,7 @@ $(document).ready(function(){
         $("#sair").click(function() { //quando o usuário clicar em sair
             localStorage.removeItem("login_email"); //o localstorage com a key "login_email" será apagada
             localStorage.removeItem("login_senha"); 
-            window.location.replace("http://localhost/Atividade3_TM_Ronaldo_Junior/App/login.html"); //utilizei da função replace para estabelecer que o usuario não retorne para a página
+            window.location.replace("http://localhost/AppWebMovel/App/login.html"); //utilizei da função replace para estabelecer que o usuario não retorne para a página
             
 
         });
@@ -67,7 +67,7 @@ $(document).ready(function(){
           var confi = $("#sing_senhaC").val();
             if(senha == confi){ //é importante fazer uma confirmação de senha para os usuários que esquecem com frequência suas senhas
               $.ajax({ //abrindo escopo AJAX 
-              url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php", //endereço 
+              url: "http://localhost/AppWebMovel/webservice/webservice.php", //endereço 
               method: "GET", // médoto do tipo GET
               data:{ //data os dados que serão enviados para o destino da url acima
                "tipo":"create", // tipo
@@ -97,7 +97,7 @@ $(document).ready(function(){
             var senha = $("#login_senha").val();
 
             $.ajax({
-                url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",
+                url: "http://localhost/AppWebMovel/webservice/webservice.php",
                 method: "GET",
                 data:{
                     "tipo": "readFilter",
@@ -111,7 +111,7 @@ $(document).ready(function(){
                 var senhaLS = json[3];
                 localStorage.setItem('login_email',emailLS); //FIZEMOS O SEGUINTE NESSA LINHA DE CÓDIGO: TROCAMOS VAZIO PELO VALOR ESTABELECIDO ACIMA NAS VARIÁVEIS DO LOCALSTORAGE
                 localStorage.setItem('login_senha',senhaLS);
-                window.location.replace("http://localhost/Atividade3_TM_Ronaldo_Junior/App/index.html");
+                window.location.replace("http://localhost/AppWebMovel/App/index.html");
 
                 },timeout: 3000,
                 error: function () {
@@ -138,7 +138,7 @@ $(document).ready(function(){
             var cidade = $("#cidade").val();
             var estado = $("#estado").val();
             $.ajax({ //criando um ajax para cadastro, com o url indicando o webservice que se encontra a cláusula de inserção
-                url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php", //endereço 
+                url: "http://localhost/AppWebMovel/webservice/webservice.php", //endereço 
                 method: "GET", //o método
                 data:{  // os dados que serão enviados, no valor com aspas é a variável logo acima e o valor que se encontra logo após o dois pontos é o parâmetro que será enviado e relacionado no webservice
                     "tipo": tipo,
@@ -179,7 +179,7 @@ $(document).ready(function(){
             var palestrantes = $("#palestrantes").val();
             var descri = $("#descri").val();
             $.ajax({
-                url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",
+                url: "http://localhost/AppWebMovel/webservice/webservice.php",
                 method: "GET",
                 data:{
                     "tipo": tipo,
@@ -235,7 +235,7 @@ $(document).ready(function(){
 
     function puxarDadosM(id){ //função que irá puxar os dados e atribuí-los para os inputs na hora de editar
         $.ajax({
-            url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",
+            url: "http://localhost/AppWebMovel/webservice/webservice.php",
             method: "GET",
             data:{ 
                 "tipo": "readFilter", //tipo que irá retornar apenas os dados do id que será enviado via ajax
@@ -267,7 +267,7 @@ $(document).ready(function(){
 
     function puxarDadosE(id){
         $.ajax({
-            url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",
+            url: "http://localhost/AppWebMovel/webservice/webservice.php",
             method: "GET",
             data:{
                 "tipo": "readFilter",
@@ -297,7 +297,7 @@ $(document).ready(function(){
 
          function deletarM(id) { //função responsável por excluir 
             $.ajax({ //criamos um ajax para passar o id, tipo e tabela que será executada nossa função
-                url:"http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",
+                url:"http://localhost/AppWebMovel/webservice/webservice.php",
                 method: "GET",
                 data:{ 
                     "tipo": "delete",
@@ -318,7 +318,7 @@ $(document).ready(function(){
         }
         function deletarE(id) {
             $.ajax({
-                url:"http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",
+                url:"http://localhost/AppWebMovel/webservice/webservice.php",
                 method: "GET",
                 data:{
                     "tipo": "delete",
@@ -340,7 +340,7 @@ $(document).ready(function(){
 
         function listarM() { //função responsável por listar os membros 
             $.ajax({ // criação de um ajax para retornar o resultado da cláusula do webservice
-             url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",   
+             url: "http://localhost/AppWebMovel/webservice/webservice.php",   
 		data:{
 			"tipo": "read",
 			"tabela": "membros" 
@@ -375,7 +375,7 @@ $(document).ready(function(){
 
         function listarE() {
             $.ajax({
-             url: "http://localhost/Atividade3_TM_Ronaldo_Junior/webservice/webservice.php",   
+             url: "http://localhost/AppWebMovel/webservice/webservice.php",   
 		data:{
 			"tipo": "read",
 			"tabela": "eventos" 
